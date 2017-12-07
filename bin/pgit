@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Save file as pgit in /powasp/bin
+# export PATH="$PATH:/powasp/bin"
+
+# Run like this:
+# pgit alias-name
+
+# File at /powasp/etc/pgit.conf
+# Has following format:
+# responder = responder-github
+
+
+# Debug
+set -x
+
+COMMAND=$1
+P1=$2
+
+REPOSITORYURL=''
+INSTALLPATH="/powasp/bin/$P1"
+CONFFILE="/Users/thomas/Documents/School/POWASP/etc/github.conf"
+
+function getRepositoryURL () {
+	REPOSITORYURL=$(grep "^$1" "$CONFFILE" | cut -d \  -f 3)
+}
+
+case $COMMAND in
+  install)
+    getRepositoryURL $P1
+
+    echo "Please input the path you would like to clone to [$INSTALLPATH]: "
+    read PATHINPUT
+
+    if [[ -n "$PATHINPUT" ]]; then
+      INSTALLPATH="$PATHINPUT"
+    fi
+
+    echo "$REPOSITORYURL"
+
+    git clone "$REPOSITORYURL" "$INSTALLPATH"
+    ;;
+  list)
+    cat "$CONFFILE"
+    ;;
+  *)
+    echo "BAD"
+esac
