@@ -12,7 +12,7 @@
 
 
 # Debug
-set -x
+# set -x
 
 COMMAND=$1
 P1=$2
