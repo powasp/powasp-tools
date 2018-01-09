@@ -5,6 +5,7 @@ BASEGITHUB="https://github.com/powasp/powasp-tools/"
 TEMPDIR="/powasp_temp"
 
 # Clone updated scripts
+rm -rf $TEMPDIR
 sudo git clone $BASEGITHUB $TEMPDIR
 
 echo "* Update Started *"
