@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#CHANGING
-
 #Variables
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
 TEMPDIR="/powasp_temp"
@@ -19,10 +17,4 @@ echo
 echo "* Update complete! *"
 echo
 echo "----------------------------"
-echo
-echo "Be sure to run the following command for the changes to complete:"
-echo "---------------"
-echo "source ~/.bashrc"
-echo "---------------"
-echo
 echo
