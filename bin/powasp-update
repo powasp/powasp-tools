@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Variables
+BASEGITHUB="https://github.com/powasp/powasp-tools/"
+TEMPDIR="/powasp_temp"
+POWASPDIR="~/powasp-tools"
+
+cd $POWASPDIR 
+
+git pull 
+
+echo "* Completing Update... *"
+chmod -R +x /powasp/bin
+sudo rm -rf $TEMPDIR
+
+echo
+echo "* Update complete! *"
+echo
+echo "----------------------------"
+echo
+echo "Be sure to run the following command for the changes to complete:"
+echo "---------------"
+echo "source ~/.bashrc"
+echo "---------------"
+echo
+echo
