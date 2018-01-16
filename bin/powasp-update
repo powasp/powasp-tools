@@ -3,14 +3,14 @@
 #Variables
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
 TEMPDIR="/powasp_temp"
-POWASPDIR="~/powasp-tools"
+POWASPDIR="/powasp"
 
 cd $POWASPDIR 
 
 git pull 
 
 echo "* Completing Update... *"
-chmod -R +x /powasp/bin
+chmod -R +x $POWASPDIR/bin
 sudo rm -rf $TEMPDIR
 
 echo
