@@ -1,11 +1,8 @@
 #!/bin/bash
 
-set -x
-
 LOCALHOSTURL="http://localhost"
 
-if type open &> /dev/null; then
-  open "$LOCALHOSTURL:$1"
-else
-  xdg-open "$LOCALHOSTURL:$1"
-fi
+open &> /dev/null && open "$LOCALHOSTURL:$1" && exit
+  
+# Open with xdg-open if open is unavailable
+xdg-open "$LOCALHOSTURL:$1"
