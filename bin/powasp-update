@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#CHANGING
+
 #Variables
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
 TEMPDIR="/powasp_temp"
