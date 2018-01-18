@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Runs the powasp docker image and opens a shell
+
+docker run -ti powasp/powasp /bin/bash
