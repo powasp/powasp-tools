@@ -1,8 +1,14 @@
 #!/bin/bash
 
+# Open a port on a local machine
+# Usage:
+#
+# popen [port]
+#
+
 LOCALHOSTURL="http://localhost"
 
 open &> /dev/null && open "$LOCALHOSTURL:$1" && exit
-  
+
 # Open with xdg-open if open is unavailable
 xdg-open "$LOCALHOSTURL:$1"

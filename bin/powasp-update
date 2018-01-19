@@ -1,17 +1,19 @@
 #!/bin/bash
 
+# Updates powasp-tools
+
 #Variables
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
-TEMPDIR="/powasp_temp"
 POWASPDIR="/powasp"
 
-cd $POWASPDIR 
+cd $POWASPDIR
 
-git pull 
+git pull
 
 echo "* Completing Update... *"
+
+# Make sure bin files have execute permissions
 chmod -R +x $POWASPDIR/bin
-sudo rm -rf $TEMPDIR
 
 echo
 echo "* Update complete! *"

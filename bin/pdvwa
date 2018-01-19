@@ -1,3 +1,5 @@
 #!/bin/bash
 
+# Run dvwa
+
 docker run -d -p 80:80 citizenstig/dvwa
