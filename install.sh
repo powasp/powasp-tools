@@ -5,10 +5,10 @@
 set -x
 
 # Variables
-RCPATH="~/.bashrc"
-PROFILEPATH="~/.bash_profile"
+RCPATH="$HOME/.bashrc"
+PROFILEPATH="$HOME/.bash_profile"
 RCSTR="[[ -f /powasp/.bashrc ]] && source /powasp/.bashrc"
-PROFILESTR="[[ -f $PROFILEPATH ]] && source $PROFILEPATH"
+PROFILESTR="[[ -f ~/.bash_profile ]] && source ~/.bash_profile"
 
 # Ensure bin files have execute permissions
 # chmod -R +x /powasp/bin
