@@ -2,7 +2,7 @@
 
 # Installs powasp-tools the first time
 
-set -x
+# set -x
 
 # Variables
 RCPATH="$HOME/.bashrc"
