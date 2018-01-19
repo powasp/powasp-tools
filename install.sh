@@ -6,4 +6,4 @@
 # chmod -R +x /powasp/bin
 
 # Add contents of powasp .bashrc to local .bashrc (so commands are available in non-login scripts too!)
-cat /powasp/.bashrc >> ~/.bashrc
+echo "source /powasp/.bashrc" >> ~/.bashrc
