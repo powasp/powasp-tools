@@ -2,4 +2,4 @@
 
 # Runs the powasp docker image and opens a shell
 
-docker run -ti --volumes-from powasp-datacontainer powasp/powasp
+docker run -ti --rm -v ~/.powasp/powasp:/powasp -v ~/.powasp/persistent:/persistent powasp/powasp
