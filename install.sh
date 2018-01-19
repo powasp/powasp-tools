@@ -8,7 +8,7 @@ set -x
 RCPATH="$HOME/.bashrc"
 PROFILEPATH="$HOME/.bash_profile"
 RCSTR="[[ -f /powasp/.bashrc ]] && source /powasp/.bashrc # Loads POWASP .bashrc"
-PROFILESTR="[[ -f ~/.bash_rc ]] && source ~/.bash_rc # Loads .bash_rc"
+PROFILESTR="[[ -f ~/.bashrc ]] && source ~/.bashrc # Loads .bashrc"
 
 # Ensure bin files have execute permissions
 # chmod -R +x /powasp/bin
