@@ -5,5 +5,5 @@
 # Ensure bin files have execute permissions
 # chmod -R +x /powasp/bin
 
-# Add export path command to bashrc (so commands are available in non-login scripts too!)
-echo 'export PATH="$PATH:/powasp/bin"' >> ~/.bashrc
+# Add contents of powasp .bashrc to local .bashrc (so commands are available in non-login scripts too!)
+cat /powasp/.bashrc >> ~/.bashrc
