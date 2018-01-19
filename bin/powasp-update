@@ -13,7 +13,7 @@ git pull
 echo "* Completing Update... *"
 
 # Make sure bin files have execute permissions
-chmod -R +x $POWASPDIR/bin
+# chmod -R +x $POWASPDIR/bin
 
 echo
 echo "* Update complete! *"
