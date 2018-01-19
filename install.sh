@@ -9,20 +9,6 @@ PROFILEPATH="~/.bash_profile"
 RCSTR="[[ -f /powasp/.bashrc ]] && source /powasp/.bashrc"
 PROFILESTR="[[ -f $PROFILEPATH ]] && source $PROFILEPATH"
 
-function checkfile () {
-  # Checks a file for a string
-  # Usage: checkfile <file> <string>
-
-  if [[ $(grep "$2" "$1)" ]]; then
-    # String found
-    return 0;
-  else
-    # String not found
-    return 1;
-}
-
-
-
 # Ensure bin files have execute permissions
 # chmod -R +x /powasp/bin
 
