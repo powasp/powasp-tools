@@ -6,10 +6,22 @@
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
 POWASPDIR="/powasp"
 
+echo "----------------------------"
+
 cd $POWASPDIR
 
 git pull
 
+# Check if git worked
+if [[ $? != 0 ]]; then
+  echo
+  echo "!!! Update failed. Try running as root (sudo powasp-update) !!!"
+  echo
+  exit
+fi
+
+echo
+echo
 echo "* Completing Update... *"
 
 # Make sure bin files have execute permissions
