@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Runs a bash script in debug mode
+# set -x
+
+bash -x "$@"
