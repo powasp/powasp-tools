@@ -19,6 +19,8 @@ if [ ! -d "$LOCALROOT" ]; then
 	mkdir "$LOCALROOT"
 	mkdir "$LOCALROOT/powasp"
 	mkdir "$LOCALROOT/persistent"
+else
+	echo "Directories already exist! Skipping..."
 fi
 
 # Clone the Github so it's ready to go!

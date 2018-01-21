@@ -18,6 +18,20 @@ echo "-----------"
 echo "Beginning installation..."
 echo
 
+# Create the files if they don't exist
+if [[ ! -f "$PROFILEPATH" ]]; then
+  echo "Creating $PROFILEPATH..."
+  touch "$PROFILEPATH"
+fi
+
+if [[ ! -f "$RCPATH" ]]; then
+  echo "Creating $RCPATH..."
+  touch "$RCPATH"
+fi
+
+echo
+
+
 # Add contents of powasp .bashrc to local .bashrc (so commands are available in non-login scripts too!)
 # Only if the line isn't already there!
 echo "Adding powasp/bin to ~/.bashrc..."
