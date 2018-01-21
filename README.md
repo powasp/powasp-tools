@@ -6,7 +6,7 @@ To install:
 
 ```
 $ sudo git clone https://github.com/powasp/powasp-tools/ /powasp
-$ sudo sh /powasp/install.sh
+$ sudo bash /powasp/install.sh
 $ source ~/.bashrc
 ```
 
