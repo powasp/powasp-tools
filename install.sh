@@ -21,7 +21,7 @@ echo
 # Add contents of powasp .bashrc to local .bashrc (so commands are available in non-login scripts too!)
 # Only if the line isn't already there!
 echo "Adding powasp/bin to ~/.bashrc..."
-if [[ -z $(grep "$RCSTR" "$RCPATH") ]]; then
+if [[ -z $(grep -F "$RCSTR" "$RCPATH") ]]; then
   # Error handling
   echo "$RCSTR" >> "$RCPATH" && echo "Added!" || echo "ERROR: Failed to add line to .bashrc! Try adding manually"
 else
@@ -33,7 +33,7 @@ echo
 echo "Adding ~/.bashrc to ~/.bash_profile..."
 # Make sure .bash_profile pulls from .bashrc for cross-compatibility
 # Only if it hasn't been sourced already!
-if [[ -z $(grep "~/.bashrc" "$PROFILEPATH") ]]; then
+if [[ -z $(grep -F "~/.bashrc" "$PROFILEPATH") ]]; then
   # Error handling
   echo "$PROFILESTR" >> "$PROFILEPATH" && echo "Added!" || echo "ERROR: Failed to add line to .bash_profile! Try adding manually"
 else
