@@ -14,3 +14,74 @@ To update:
 ```
 $ sudo powasp-update
 ```
+
+---
+
+# Available Commands
+
+*It is recommended to go through each file to see how it works. The scripts are all commented and simple!*
+
+
+## pdb
+
+Runs a bash script in debug mode
+
+```
+$ pdb <command>
+```
+
+## pdvwa
+
+Runs dvwa
+
+```
+$ pdvwa
+```
+
+## pgit
+
+Installs a github repository based on shortcuts defined in `/powasp/etc/pgit.conf`
+
+```
+$ pgit <github-shortcut>
+```
+
+## pjuice
+
+Runs juice
+
+```
+$ pjuice
+```
+
+## pmutill
+
+Runs mutillidae
+
+```
+$ pmutill
+```
+
+## popen
+
+Open a port on localhost
+
+```
+$ popen <port>
+```
+
+## powasp-update
+
+Updates powasp-tools to the latest version
+
+```
+$ sudo powasp-update
+```
+
+## pwn
+
+Runs the powasp docker image and opens a shell
+
+```
+$ pwn
+```

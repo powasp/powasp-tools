@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Installs a github repository based on shortcuts defined in `/powasp/etc/pgit.conf`
+
+
 # Save file as pgit in /powasp/bin
 # export PATH="$PATH:/powasp/bin"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Open a port on a local machine
+# Open a port on localhost
 # Usage:
 #
 # popen [port]
