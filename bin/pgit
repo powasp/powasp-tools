@@ -22,7 +22,7 @@ P1=$2
 
 REPOSITORYURL=''
 INSTALLPATH="/powasp/bin/$P1"
-CONFFILE="/powasp/etc/github.conf"
+CONFFILE="/powasp/etc/pgit.conf"
 
 function getRepositoryURL () {
 	REPOSITORYURL=$(grep "^$1" "$CONFFILE" | cut -d \  -f 3)
