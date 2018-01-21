@@ -28,6 +28,7 @@ else
   echo "Already added! Skipping..."
 fi
 
+echo
 
 echo "Adding ~/.bashrc to ~/.bash_profile..."
 # Make sure .bash_profile pulls from .bashrc for cross-compatibility
