@@ -22,12 +22,12 @@ $ sudo powasp-update
 *It is recommended to go through each file to see how it works. The scripts are all commented and simple!*
 
 
-## pdb
+## pdebug
 
 Runs a bash script in debug mode
 
 ```
-$ pdb <command>
+$ pdebug <command>
 ```
 
 ## pdvwa
