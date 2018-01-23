@@ -19,7 +19,7 @@ $ sudo powasp-update
 
 # Available Commands
 
-*It is recommended to go through each file to see how it works. The scripts are all commented and simple!*
+*It is recommended to go through each file to see how it works. The scripts are all commented and short!*
 
 
 ## pdebug
