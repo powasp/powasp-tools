@@ -10,8 +10,10 @@ SELECTMESSAGE="[y/n]"
 ANSWER=""
 VERBOSE=""
 
-# Check if verbose (Sets $VERBOSE to the "-v" if the flag is present)
+# Check if verbose (Sets $VERBOSE to the "-v" if the flag is present, or "?" if not)
 getopts v VERBOSE
+
+echo $(pflag $VERBOSE)
 
 # Shifts the option index to after the flags
 shift $(($OPTIND-1))

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Checks if a given flag is present from variable stored by getopts
+# Usage: pflag <getopts return value>
+
+case $1 in
+  -*)
+    exit 0
+    ;;
+  *)
+    exit 1
+    ;;
+esac
