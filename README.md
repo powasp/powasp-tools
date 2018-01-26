@@ -32,7 +32,7 @@ $ pdebug <command>
 
 ## pdvwa
 
-Runs dvwa
+Pulls and runs dvwa
 
 ```
 $ pdvwa
@@ -48,7 +48,7 @@ $ pgit <github-shortcut>
 
 ## pjuice
 
-Runs juice
+Pulls and runs juice
 
 ```
 $ pjuice
@@ -56,7 +56,7 @@ $ pjuice
 
 ## pmutill
 
-Runs mutillidae
+Pulls and runs mutillidae
 
 ```
 $ pmutill
@@ -80,7 +80,7 @@ $ sudo powasp-update
 
 ## pwn
 
-Runs the powasp docker image and opens a shell
+Pulls and runs the powasp docker image and opens a shell
 
 ```
 $ pwn
