@@ -1,13 +1,20 @@
 #!/bin/bash
 
 # Asks to confirm if a user wants to do something
-# Usage: pconfirm [message]
+# Usage: pconfirm [message] [-v]
 
 
 # Variables
 DEFAULTMESSAGE="Are you sure?"
 SELECTMESSAGE="[y/n]"
 ANSWER=""
+VERBOSE=""
+
+# Check if verbose (Sets $VERBOSE to the "-v" if the flag is present)
+getopts v VERBOSE
+
+# Shifts the option index to after the flags
+shift $(($OPTIND-1))
 
 # Set message if available
 if [[ -z "$1" ]]; then
@@ -27,6 +34,8 @@ case "$ANSWER" in
 		;;
 	*)
 		# Return false
+		# If verbose, tell the user
+		[[ "$VERBOSE" ]] && echo "Operation cancelled"
 		exit 1
 		;;
 esac
