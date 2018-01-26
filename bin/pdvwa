@@ -2,4 +2,8 @@
 
 # Runs dvwa
 
+# Pull image
+docker pull citizenstig/dvwa
+
+# Start the service citizenstig/dvwa
 docker run -d -p 80:80 citizenstig/dvwa
