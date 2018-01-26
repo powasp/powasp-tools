@@ -4,7 +4,7 @@
 # Usage: pflag <getopts return value>
 
 case $1 in
-  -[a-zA-Z])
+  [a-zA-Z])
     exit 0
     ;;
   *)
