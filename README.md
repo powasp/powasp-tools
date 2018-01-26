@@ -79,6 +79,15 @@ $ pgit <github-shortcut>
 ```
 
 
+## phelp
+
+Displays the relevant parts of the README
+
+```
+$ phelp <command>
+```
+
+
 ## pjuice
 
 Pulls and runs juice
