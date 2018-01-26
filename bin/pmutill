@@ -14,9 +14,8 @@ fi
 
 
 # Pull the image
-docker pull szsecurity/mutillidae 
+docker pull szsecurity/mutillidae
 
 # Start the service
 # Open in browser if it succeeds
-docker run -p 1337:80 --name pmutill szsecurity/mutillidae && popen 1337
-
+docker run --rm -p 1337:80 --name pmutill szsecurity/mutillidae && popen 1337
