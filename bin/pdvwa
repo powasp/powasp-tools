@@ -1,12 +1,20 @@
 #!/bin/bash
 
-# Runs dvwa
+# Pulls and runs dvwa
+
+
+# Check if we are stopping the service
+if [[ "$1" == 'stop' ]]; then
+	echo "Stopping dvwa..."
+	docker stop pdvwa
+	echo "Done"
+	exit
+fi
+
 
 # Pull image
 docker pull citizenstig/dvwa
 
 # Start the service citizenstig/dvwa
-docker run -d -p 80:80 citizenstig/dvwa
-
-# Open browser window
-popen 80
+# Open browser window if it succeeds
+docker run -d -p 80:80 --name pdvwa citizenstig/dvwa && popen 80

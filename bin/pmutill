@@ -1,12 +1,22 @@
 #!/bin/bash
 
-# Runs mutillidae
+# Pulls and runs mutillidae
+# Usage: pdvwa [stop]
+
+
+# Check if we are stopping the service
+if [[ "$1" == 'stop' ]]; then
+	echo "Stopping pmutill..."
+	docker stop pmutill
+	echo "Done"
+	exit
+fi
+
 
 # Pull the image
 docker pull szsecurity/mutillidae 
 
 # Start the service
-docker run -p 1337:80 szsecurity/mutillidae
+# Open in browser if it succeeds
+docker run -p 1337:80 --name pmutill szsecurity/mutillidae && popen 1337
 
-# Open in browser
-popen 1337
