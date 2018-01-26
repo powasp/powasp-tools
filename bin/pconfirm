@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Asks to confirm if a user wants to do something
+# Usage: pconfirm [message]
+
+
+# Variables
+DEFAULTMESSAGE="Are you sure?"
+SELECTMESSAGE="[y/n]"
+ANSWER=""
+
+# Set message if available
+if [[ -z "$1" ]]; then
+	MESSAGE="$DEFAULTMESSAGE"
+else
+	MESSAGE="$1"
+fi
+
+#Ask to confirm
+read -r -p "$DEFAULTMESSAGE $SELECTMESSAGE " ANSWER
+
+# Check their response
+case "$ANSWER" in
+	[Yy])
+		# Return true
+		exit 0
+		;;
+	*)
+		# Return false
+		exit 1
+		;;
+esac

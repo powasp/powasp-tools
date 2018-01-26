@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Docker command shortcuts
+# Usage: pdock <command>
+
+# See what command to run
+case "$1" in
+	rmi)
+		echo "Removing all images"
+		
+		# Confirm before running
+		pconfirm && docker rmi $(docker images -aq)
+		;;
+	rmc)
+		echo "Removing all containers"
+		
+		# Check if force -f
+		if [[ "$2" == "-f" ]]; then
+			pconfirm "Stop running containers?" && docker stop $(docker ps -aq)
+		fi
+
+		# Confirm before running
+		pconfirm "Delete all containers?" && docker rm $(docker ps -aq)
+		;;
+	*)
+		echo "Error: command not found"
+		;;
+esac
