@@ -6,6 +6,12 @@
 # See what command to run
 case "$1" in
 	rmi)
+		# Check if there are no images to remove
+		if [[ -z "$(docker images -aq)" ]]; then
+			echo "No images to remove"
+			exit	
+		fi
+		
 		echo "Removing all images"
 		
 		# Confirm before running
@@ -17,6 +23,12 @@ case "$1" in
 		# Check if force -f
 		if [[ "$2" == "-f" ]]; then
 			pconfirm "Stop running containers?" && docker stop $(docker ps -aq)
+		fi
+		
+		# Check if there are no containers to remove
+		if [[ -z "$(docker ps -aq)" ]]; then
+			echo "No containers to remove"
+			exit	
 		fi
 
 		# Confirm before running
