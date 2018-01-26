@@ -2,4 +2,9 @@
 
 # Runs the powasp docker image and opens a shell
 
+
+# Pull the docker image
+docker pull powasp/powasp
+
+# Run the docker image
 docker run -ti --rm -v ~/.powasp/powasp:/powasp -v ~/.powasp/persistent:/persistent --name powaspcontainer powasp/powasp
