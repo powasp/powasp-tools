@@ -57,6 +57,19 @@ $ pdvwa
 ```
 
 
+## pflag
+
+Checks if a flag is present based on a getopts variable
+
+```
+# Uses getopts to check for -f flag
+$ getopts f FLAG
+
+# Parses $FLAG and runs command if successful
+$ pflag "$FLAG" && echo "Success!"
+```
+
+
 ## pgit
 
 Installs a github repository based on shortcuts defined in `/powasp/etc/pgit.conf`
