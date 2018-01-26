@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Shows README entry for commands
+# Usage: phelp <command>
+
+echo
+echo "----- BEGIN HELP -----"
+echo
+echo
+
+# If no command given, show the whole README and exit
+[[ -z "$1" ]] && cat /powasp/README.md && exit
+
+# Print from the matched line, to the next Header 2 (##)
+# Print all but the last 3 lines
+sed -n "/$1/,/^\#\#/ p" /powasp/README.md | sed '$d' | sed '$d' | sed '$d'
+
+echo
+echo
+echo "----- END HELP -----"
+echo
