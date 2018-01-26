@@ -7,3 +7,6 @@ docker pull szsecurity/mutillidae
 
 # Start the service
 docker run -p 1337:80 szsecurity/mutillidae
+
+# Open in browser
+popen 1337
