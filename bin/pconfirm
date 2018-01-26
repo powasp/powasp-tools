@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Asks to confirm if a user wants to do something
-# Usage: pconfirm [message] [-v]
+# Usage: pconfirm -v [message]
 
 
 # Variables
@@ -35,7 +35,7 @@ case "$ANSWER" in
 	*)
 		# Return false
 		# If verbose, tell the user
-		[[ $(pflag "$VERBOSE") ]] && echo "Operation cancelled"
+		pflag "$VERBOSE" && echo "Operation cancelled"
 		exit 1
 		;;
 esac

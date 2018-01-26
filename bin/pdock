@@ -32,7 +32,7 @@ case "$1" in
 		echo "Removing all containers"
 
 		# Check if force -f
-		if [[ $(pflag "$FORCE") ]]; then
+		if $(pflag "$FORCE"); then
 			pconfirm -v "Stop running containers?" && docker stop $(docker ps -aq)
 		fi
 
