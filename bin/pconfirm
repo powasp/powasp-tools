@@ -17,7 +17,7 @@ else
 fi
 
 #Ask to confirm
-read -r -p "$DEFAULTMESSAGE $SELECTMESSAGE " ANSWER
+read -r -p "$MESSAGE $SELECTMESSAGE " ANSWER
 
 # Check their response
 case "$ANSWER" in
