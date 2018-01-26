@@ -2,4 +2,8 @@
 
 # Runs juice
 
+# Pull the image
+docker pull bkimminich/juice-shop 
+
+# Start the service
 docker run --rm -p 3000:3000 $ bkimminich/juice-shop
