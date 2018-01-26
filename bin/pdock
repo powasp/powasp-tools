@@ -11,8 +11,6 @@ FORCE=""
 # Check for -f flag (Sets $FORCE to the "-f" if the flag is present, or "?" if not)
 getopts f FORCE
 
-echo $FORCE
-
 # Shifts the option index to after the flags
 shift $(($OPTIND-1))
 
@@ -34,7 +32,7 @@ case "$1" in
 		echo "Removing all containers"
 
 		# Check if force -f
-		if [[ -n "$FORCE" ]]; then
+		if [[ $(pflag "$FORCE") ]]; then
 			pconfirm -v "Stop running containers?" && docker stop $(docker ps -aq)
 		fi
 

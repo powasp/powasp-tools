@@ -35,7 +35,7 @@ case "$ANSWER" in
 	*)
 		# Return false
 		# If verbose, tell the user
-		[[ pflag "$VERBOSE" ]] && echo "Operation cancelled"
+		[[ $(pflag "$VERBOSE") ]] && echo "Operation cancelled"
 		exit 1
 		;;
 esac
