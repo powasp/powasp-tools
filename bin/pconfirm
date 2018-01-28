@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Asks to confirm if a user wants to do something
-# Usage: pconfirm -v [message]
+# Usage: pconfirm [-y] [-n] [-q question]
 
 
 # Variables

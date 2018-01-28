@@ -27,7 +27,7 @@ $ sudo powasp-update
 Confirms a user action
 
 ```
-$ pconfirm [message]
+$ pconfirm [-y] [-n] [-q question]
 ```
 
 
