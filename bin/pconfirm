@@ -8,10 +8,33 @@
 QUESTION="Are you sure?"
 SELECTMESSAGE="[y/n]"
 ANSWER=""
-VERBOSE=""
+YESVERBOSE=0
+NOVERBOSE=0
 
-# Check if verbose (Sets $VERBOSE to the "-v" if the flag is present, or "?" if not)
-getopts v VERBOSE
+# Check if verbose
+while getopts "ynq:" OPT; do
+	case $OPT in
+		y)
+			# Set verbose on "No" answers to true
+			YESVERBOSE=1
+			;;
+		n)
+			# Set verbose on "No" answers to true
+			NOVERBOSE=1
+			;;
+		q)
+			QUESTION="$OPTARG"
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" &>2
+			exit 2
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument." &>2
+			exit 2
+			;;
+	esac
+done
 
 # Shifts the option index to after the flags
 shift $(($OPTIND-1))
@@ -26,12 +49,14 @@ read -r -p "$QUESTION $SELECTMESSAGE " ANSWER
 case "$ANSWER" in
 	[Yy])
 		# Return true
+		# If verbose, tell the user
+		(( $YESVERBOSE )) && echo "Operation confirmed"
 		exit 0
 		;;
 	*)
 		# Return false
 		# If verbose, tell the user
-		pflag "$VERBOSE" && echo "Operation cancelled"
+		(( $NOVERBOSE )) && echo "Operation cancelled"
 		exit 1
 		;;
 esac
