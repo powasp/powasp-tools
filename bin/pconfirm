@@ -5,7 +5,7 @@
 
 
 # Variables
-MESSAGE="Are you sure?"
+QUESTION="Are you sure?"
 SELECTMESSAGE="[y/n]"
 ANSWER=""
 VERBOSE=""
@@ -17,10 +17,10 @@ getopts v VERBOSE
 shift $(($OPTIND-1))
 
 # Set message if available
-[[ -n "$1" ]] && MESSAGE="$1"
+[[ -n "$1" ]] && QUESTION="$1"
 
 #Ask to confirm
-read -r -p "$MESSAGE $SELECTMESSAGE " ANSWER
+read -r -p "$QUESTION $SELECTMESSAGE " ANSWER
 
 # Check their response
 case "$ANSWER" in
