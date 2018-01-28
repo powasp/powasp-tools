@@ -5,7 +5,7 @@
 
 
 # Variables
-DEFAULTMESSAGE="Are you sure?"
+MESSAGE="Are you sure?"
 SELECTMESSAGE="[y/n]"
 ANSWER=""
 VERBOSE=""
@@ -17,11 +17,7 @@ getopts v VERBOSE
 shift $(($OPTIND-1))
 
 # Set message if available
-if [[ -z "$1" ]]; then
-	MESSAGE="$DEFAULTMESSAGE"
-else
-	MESSAGE="$1"
-fi
+[[ -n "$1" ]] && MESSAGE="$1"
 
 #Ask to confirm
 read -r -p "$MESSAGE $SELECTMESSAGE " ANSWER
