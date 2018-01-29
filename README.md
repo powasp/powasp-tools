@@ -56,7 +56,11 @@ $ pdock <rmc | rmi>
 Pulls and runs dvwa
 
 ```
+# To start
 $ pdvwa
+
+# To stop
+$ pdvwa stop
 ```
 
 
@@ -96,7 +100,11 @@ $ phelp <command>
 Pulls and runs juice
 
 ```
+# To start
 $ pjuice
+
+# To stop
+$ pjuice stop
 ```
 
 
@@ -105,7 +113,11 @@ $ pjuice
 Pulls and runs mutillidae
 
 ```
+# To start
 $ pmutill
+
+# To stop
+$ pmutill stop
 ```
 
 
