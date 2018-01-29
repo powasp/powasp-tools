@@ -133,7 +133,7 @@ $ popen <port>
 ## powasp-update
 
 Updates powasp-tools to the latest version
-* Note: `sudo` must be used if updating `/powasp` *
+*Note: `sudo` must be used if updating `/powasp`*
 
 ```
 $ powasp-update [-d <Base directory>]
