@@ -44,7 +44,10 @@ $ pdebug <command>
 
 Runs custom docker commands
 ```
-$ docker <rmc [-f]|rmi>
+# rmc   Removes all docker containers
+# rmi   Removes all docker images
+
+$ pdock <rmc | rmi>
 ```
 
 

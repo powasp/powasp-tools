@@ -1,18 +1,9 @@
 #!/bin/bash
 
 # Docker command shortcuts
-# Usage: pdock [-f] <command>
-
-
-# Variables
-FORCE=""
-
-
-# Check for -f flag (Sets $FORCE to the "-f" if the flag is present, or "?" if not)
-getopts f FORCE
-
-# Shifts the option index to after the flags
-shift $(($OPTIND-1))
+# Usage: pdock <rmc | rmi>
+# rmi		Remove all images
+# rmc		Remove all containers
 
 # See what command to run
 case "$1" in
@@ -31,10 +22,7 @@ case "$1" in
 	rmc)
 		echo "Removing all containers"
 
-		# Check if force -f
-		if $(pflag "$FORCE"); then
-			pconfirm -n "Stop running containers?" && docker stop $(docker ps -aq)
-		fi
+		pconfirm -n "Stop running containers?" && docker stop $(docker ps -aq)
 
 		# Check if there are no containers to remove
 		if [[ -z "$(docker ps -aq)" ]]; then
