@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Asks to confirm if a user wants to do something
-# Usage: pconfirm [-y] [-n] [-q question]
+# Usage: pconfirm [-y | -Y <Confirmation message>] [-n | -N <Rejection message>] [-q question]
 
 
 # Variables
@@ -9,18 +9,32 @@ QUESTION="Are you sure?"
 SELECTMESSAGE="[y/n]"
 ANSWER=""
 YESVERBOSE=0
+YESMESSAGE="Operation confirmed"
 NOVERBOSE=0
+NOMESSAGE="Operation cancelled"
 
 # Check if verbose
-while getopts "ynq:" OPT; do
+while getopts "ynY:N:q:" OPT; do
 	case $OPT in
 		y)
-			# Set verbose on "No" answers to true
+			# Set verbose on "Yes" answers to true
 			YESVERBOSE=1
 			;;
 		n)
 			# Set verbose on "No" answers to true
 			NOVERBOSE=1
+			;;
+		Y)
+			# Set verbose on "Yes" answers to true
+			YESVERBOSE=1
+			# Set NOMESSAGE to argument
+			YESMESSAGE="$OPTARG"
+			;;
+		N)
+			# Set verbose on "No" answers to true
+			NOVERBOSE=1
+			# Set NOMESSAGE to argument
+			NOMESSAGE="$OPTARG"
 			;;
 		q)
 			QUESTION="$OPTARG"
@@ -50,13 +64,13 @@ case "$ANSWER" in
 	[Yy])
 		# Return true
 		# If verbose, tell the user
-		(( $YESVERBOSE )) && echo "Operation confirmed"
+		(( $YESVERBOSE )) && echo "$YESMESSAGE"
 		exit 0
 		;;
 	*)
 		# Return false
 		# If verbose, tell the user
-		(( $NOVERBOSE )) && echo "Operation cancelled"
+		(( $NOVERBOSE )) && echo "$NOMESSAGE"
 		exit 1
 		;;
 esac
