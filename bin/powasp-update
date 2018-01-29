@@ -6,7 +6,7 @@
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
 POWASPDIR="/powasp"
 
-
+# Check for flags
 while getopts "d:" OPT; do
 	case $OPT in
 		d)
