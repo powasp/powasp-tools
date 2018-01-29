@@ -4,7 +4,17 @@
 
 
 # Pull the docker image
+echo
+echo "*** Pulling the latest version of powasp/powasp... ***"
+echo
 docker pull powasp/powasp
+echo
+echo "*** Done ***"
+
+
+# Pull the latest powasp-tools to be used in the Docker
+powasp-update -d ~/.powasp/powasp
+
 
 # Run the docker image
 # Hostname (-h): powasp

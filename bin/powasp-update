@@ -6,8 +6,32 @@
 BASEGITHUB="https://github.com/powasp/powasp-tools/"
 POWASPDIR="/powasp"
 
+
+while getopts "d:" OPT; do
+	case $OPT in
+		d)
+			# Set $POWASPDIR to argument
+			POWASPDIR="$OPTARG"
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" &>2
+			exit 2
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument." &>2
+			exit 2
+			;;
+	esac
+done
+
+# Shifts the option index to after the flags
+shift $(($OPTIND-1))
+
+
 echo "----------------------------"
 
+# Navigate to base directory
+echo "Installing in $POWASPDIR ..."
 cd $POWASPDIR
 
 git pull
