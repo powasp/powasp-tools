@@ -20,7 +20,13 @@ case "$1" in
 		pconfirm -n && docker rmi $(docker images -aq)
 		;;
 	rmc)
-		echo "Removing all containers"
+		echo "Removing all containers..."
+
+		# Check if there are no containers to remove
+		if [[ -z "$(docker ps -aq)" ]]; then
+			echo "No containers to remove"
+			exit
+		fi
 
 		pconfirm -n "Stop running containers?" && docker stop $(docker ps -aq)
 
