@@ -27,7 +27,7 @@ $ sudo powasp-update
 Confirms a user action
 
 ```
-Usage:
+# Usage:
 
 $ pconfirm [-y | -Y <Confirmation message>] [-n | -N <Rejection message>] [-q <Question>]
 
@@ -71,6 +71,7 @@ Runs custom docker commands
 # rmc   Removes all docker containers
 # rmi   Removes all docker images
 
+# Usage:
 $ pdock <rmc | rmi>
 ```
 
@@ -164,6 +165,7 @@ Updates powasp-tools to the latest version
 
 ```
 # Default base directory is /powasp
+
 $ powasp-update [-d <Base directory>]
 ```
 
