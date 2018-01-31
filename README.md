@@ -37,8 +37,8 @@ Flags
 --------------
 -y  Display default confirmation message when the user confirms
 -Y  Display custom <Confirmation message> when the user confirms
--y  Display default rejection message when the user does not confirm
--Y  Display custom <Rejection message> when the user does not confirm
+-n  Display default rejection message when the user does not confirm
+-N  Display custom <Rejection message> when the user does not confirm
 -q  Ask a user-defined confirmation question
 
 
