@@ -172,7 +172,7 @@ $ powasp-update [-d <Base directory>]
 
 ## pwn
 
-Pulls and runs the powasp docker image and opens a shell
+Pulls the powasp docker image, pulls the latest version of powasp-tools into the `~/.powasp/powasp` folder, and opens a shell in the docker container
 
 ```
 $ pwn
