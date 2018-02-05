@@ -1,21 +1,21 @@
 #!/bin/bash
 
 # Pulls and runs juice
+# Usage: pjuice [stop]
 
 
 # Check if we are stopping the service
 if [[ "$1" == 'stop' ]]; then
-	echo "Stopping dvwa..."
-	docker stop pdvwa
+	echo "Stopping juice..."
+	docker stop pjuice
 	echo "Done"
 	exit
 fi
 
 
 # Pull the image
-docker pull bkimminich/juice-shop 
+docker pull bkimminich/juice-shop
 
 # Start the service
 # Open in browser if it succeeds
 docker run --rm -p 3000:3000 --name pjuice bkimminich/juice-shop && popen 3000
-

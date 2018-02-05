@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Pulls and runs dvwa
+# Usage: pdvwa [stop]
 
 
 # Check if we are stopping the service

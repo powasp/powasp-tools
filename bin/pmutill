@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Pulls and runs mutillidae
-# Usage: pdvwa [stop]
+# Usage: pmutill [stop]
 
 
 # Check if we are stopping the service
 if [[ "$1" == 'stop' ]]; then
-	echo "Stopping pmutill..."
+	echo "Stopping mutillidae..."
 	docker stop pmutill
 	echo "Done"
 	exit
