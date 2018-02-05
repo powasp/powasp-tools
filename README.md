@@ -102,6 +102,15 @@ $ pflag "$FLAG" && echo "Success!"
 ```
 
 
+## pgap
+
+Inserts a gap between standard out statements using echo
+
+```
+pgap [number_of_lines]
+```
+
+
 ## pgit
 
 Installs a github repository based on shortcuts defined in `/powasp/etc/pgit.conf`

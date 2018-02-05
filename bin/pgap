@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Inserts a gap between standard out statements using echo
+# Usage: pgap [number_of_lines]
+
+# Set the default gap
+LINES=2
+
+# Set the amount of lines if an argument is used
+[[ -n "$1" ]] && LINES=$1
+
+# Loop for each $LINES
+while [[ $LINES > 0 ]]; do
+  echo
+
+  # Decrement $LINES by 1
+  ((LINES--))
+done
