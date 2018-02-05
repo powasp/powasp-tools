@@ -6,10 +6,13 @@
 BASEDIR="/powasp/bin"
 FILES=`ls -1 "$BASEDIR"`
 
+# Loop through each file name
 for FILE in $FILES; do
   echo $FILE
 
+  # Check if $FILE contains any of the other file names
   for DEP in $FILES; do
+    # Print if there is a dependency
     [[ "$FILE" != "$DEP" && -n `grep "$DEP" $BASEDIR/$FILE` ]] && echo "  |--$DEP"
   done
 done
