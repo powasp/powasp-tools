@@ -107,7 +107,7 @@ $ pflag "$FLAG" && echo "Success!"
 Inserts a gap between standard out statements using echo
 
 ```
-pgap [number_of_lines]
+pgap [blank_lines_before] [text_to_output] [blank_lines_after]
 ```
 
 
@@ -176,6 +176,16 @@ Updates powasp-tools to the latest version
 # Default base directory is /powasp
 
 $ powasp-update [-d <Base directory>]
+```
+
+
+## ptype
+
+Outputs variable type as a string
+Possible outputs: int, string
+
+```
+$ ptype $VAR
 ```
 
 
