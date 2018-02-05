@@ -28,31 +28,23 @@ done
 shift $(($OPTIND-1))
 
 
-echo "----------------------------"
+pgap "----------------------------"
 
 # Navigate to base directory
-echo "Installing in $POWASPDIR ..."
+pgap 0 "Installing in $POWASPDIR ..."
 cd $POWASPDIR
 
 git pull
 
 # Check if git worked
 if [[ $? != 0 ]]; then
-  echo
-  echo "!!! Update failed. Try running as root (sudo powasp-update) !!!"
-  echo
+  pgap "!!! Update failed. Try running as root (sudo powasp-update) !!!"
   exit
 fi
 
-echo
-echo
-echo "* Completing Update... *"
+pgap 2 "* Completing Update... *"
 
 # Make sure bin files have execute permissions
 # chmod -R +x $POWASPDIR/bin
-
-echo
 echo "* Update complete! *"
-echo
-echo "----------------------------"
-echo
+pgap "----------------------------"
