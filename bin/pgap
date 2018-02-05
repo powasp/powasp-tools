@@ -3,16 +3,44 @@
 # Inserts a gap between standard out statements using echo
 # Usage: pgap [number_of_lines]
 
+PRINTLINES () {
+  local NUM=$1
+  # Loop for each $LINES
+  while [[ $NUM > 0 ]]; do
+    # Print a blank "gap" line
+    echo
+
+    # Decrement $NUM by 1
+    ((NUM--))
+  done
+}
+
 # Set the default gap
 LINES=2
+TEXT=""
+AFTER=1
 
-# Set the amount of lines if an argument is used
+# Set the amount of lines if $1 is set
 [[ -n "$1" ]] && LINES=$1
 
-# Loop for each $LINES
-while [[ $LINES > 0 ]]; do
-  echo
+# Set the text if $2 is set
+[[ -n "$2" ]] && TEXT=$2
 
-  # Decrement $LINES by 1
-  ((LINES--))
-done
+# Set post-text gap if $3 is set
+[[ -n "$3" ]] && AFTER=$3
+
+# If $1 is a string, set $LINES and $AFTER to 1
+if [[ $(ptype $1) == "string" ]]; then
+  LINES=1
+  TEXT="$1"
+  AFTER=1
+fi
+
+# Print the gap lines
+PRINTLINES $LINES
+
+# If there is text, output it and the $AFTER lines
+if [[ -n "$TEXT" ]]; then
+  echo "$TEXT"
+  PRINTLINES $AFTER
+fi
