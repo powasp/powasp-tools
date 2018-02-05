@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Displays dependency tree for powasp-tools scripts
+# Note: Currently only displays primary dependencies!
+
+BASEDIR="/powasp/bin"
+FILES=`ls -1 "$BASEDIR"`
+
+for FILE in $FILES; do
+  echo $FILE
+
+  for DEP in $FILES; do
+    [[ "$FILE" != "$DEP" && -n `grep "$DEP" $BASEDIR/$FILE` ]] && echo "  |--$DEP"
+  done
+done
