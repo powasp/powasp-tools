@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Outputs variable type as a string
+# Possible outputs:
+# int
+# string
+
+# Check type
+case $1 in
+  ''|*[!0-9]*)
+    # If it is an empty string or contains any non-numeric characters
+    echo "string"
+    ;;
+  *)
+    # Only numeric characters
+    echo "int"
+    ;;
+esac
