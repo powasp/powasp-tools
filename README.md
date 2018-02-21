@@ -107,7 +107,7 @@ $ pflag "$FLAG" && echo "Success!"
 Inserts a gap between standard out statements using echo
 
 ```
-pgap [blank_lines_before] [text_to_output] [blank_lines_after]
+$ pgap [blank_lines_before] [text_to_output] [blank_lines_after]
 ```
 
 
