@@ -179,6 +179,15 @@ $ powasp-update [-d <Base directory>]
 ```
 
 
+## ptime
+
+Converts epoch time to human readable format. Cross platform!
+
+```
+$ ptime [@EPOCHS]
+```
+
+
 ## ptype
 
 Outputs variable type as a string

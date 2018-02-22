@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Converts epoch date to human readable format. Cross platform!
+# Usage: ptime [@EPOCHS]
+
+GNU=0
+
+# Determine whether we are on a BSD system or a GNU system
+# Default is GNU, so this sets $GNU to 1 (false) if the system isn't GNU
+# On GNU: date -d @"$DATE"
+# On BSD: date -r "$DATE"
+if [[ ! $(date -d @1234567890 &> /dev/null) ]]; then
+  # GNU command didn't work
+  GNU=1
+fi
+
+
+
+for DATE in "$@"; do
+  # Remove unnecessary milliseconds
+  DATE=$((DATE/1000))
+
+  # Run the correct date syntax depending on the OS
+  [[ $GNU == 0 ]] && date -d @"$DATE" || date -r "$DATE"
+done
