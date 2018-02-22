@@ -9,11 +9,7 @@ GNU=0
 # Default is GNU, so this sets $GNU to 1 (false) if the system isn't GNU
 # On GNU: date -d @"$DATE"
 # On BSD: date -r "$DATE"
-
-date -d @1234567890 &> /dev/null
-echo $?
-
-if [[ ! $(date -d @1234567890 &> /dev/null) ]]; then
+if [[ $(date -d @1234567890 &> /dev/null) != 0 ]]; then
   # GNU command didn't work
   GNU=1
 fi
