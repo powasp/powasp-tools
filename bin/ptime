@@ -13,7 +13,7 @@ GNU=0
 # Try the GNU date command
 date -d @1234567890 &> /dev/null
 
-# Set $GNU equal to the return value of the previous command
+# Set $GNU equal to the exit code of the previous command
 GNU=$?
 
 
