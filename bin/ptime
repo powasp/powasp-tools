@@ -1,12 +1,55 @@
 #!/bin/bash
 
-# Converts epoch date to human readable format. Cross platform!
-# Usage: ptime [@EPOCHS]
+# Converts epoch date to human readable format with time zone selection. Cross platform!
+# Usage: ptime [-z | -Z $TIMEZONE] <@EPOCHS>
 
-GNU=0
+TZONE=$(date +%Z)
+
+# Check if a time zone adjustment is set
+while getopts "zZ:" OPT; do
+	case $OPT in
+		z)
+      # Select the time zone from /usr/share/zoneinfo. Could be just "EST" or could be "America/New York"
+      select ZONE1 in $(ls /usr/share/zoneinfo); do
+        if [ -d "/usr/share/zoneinfo/$ZONE1" ]; then
+          select ZONE2 in $(ls /usr/share/zoneinfo/$ZONE1); do
+            # Set TZONE to the selected string
+            # Depends on whether the sub-zone ($ZONE2) is set
+            TZONE="$ZONE1/$ZONE2"
+            break
+          done
+        else
+          # Set TZONE to the selected string
+          TZONE="$ZONE1"
+        fi
+        break
+      done
+			;;
+    Z)
+      # Set TZONE to argument
+      TZONE="$OPTARG"
+      ;;
+		\?)
+			echo "Invalid option: -$OPTARG" &>2
+			exit 2
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument." &>2
+			exit 2
+			;;
+	esac
+done
+
+# Shifts the option index to after the flags
+shift $(($OPTIND-1))
+
+
+
 
 # Determine whether we are on a BSD system or a GNU system
 # Default is GNU, so this sets $GNU to 1 (false) if the system isn't GNU
+GNU=0
+
 # On GNU: date -d @"$DATE"
 # On BSD: date -r "$DATE"
 
@@ -17,11 +60,12 @@ date -d @1234567890 &> /dev/null
 GNU=$?
 
 
-
+# Loop through the @EPOCHS and convert them
 for DATE in "$@"; do
   # Remove unnecessary milliseconds
   DATE=$((DATE/1000))
 
   # Run the correct date syntax depending on the OS
-  [[ $GNU == 0 ]] && date -d @"$DATE" || date -r "$DATE"
+  # Make sure to set the TZ environment variable to the selected time zone
+  [[ $GNU == 0 ]] && TZ=":$TZONE" date -d @"$DATE" || TZ=":$TZONE" date -r "$DATE"
 done

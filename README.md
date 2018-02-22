@@ -181,10 +181,10 @@ $ powasp-update [-d <Base directory>]
 
 ## ptime
 
-Converts epoch time to human readable format. Cross platform!
+Converts epoch date to human readable format with time zone selection. Cross platform!
 
 ```
-$ ptime [@EPOCHS]
+$ ptime [-z | -Z $TIMEZONE] <@EPOCHS>
 ```
 
 
