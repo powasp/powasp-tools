@@ -10,6 +10,6 @@ pgap 1 "----- BEGIN HELP -----" 2
 
 # Print from the matched line, to the next Header 2 (##)
 # Print all but the last 3 lines
-sed -n "/$1/,/^\#\#/ p" /powasp/README.md | sed '$d' | sed '$d' | sed '$d'
+sed -n "/^\#\# $1/,/^\#\#/ p" /powasp/README.md | sed '$d' | sed '$d' | sed '$d'
 
 pgap 2 "----- END HELP -----"

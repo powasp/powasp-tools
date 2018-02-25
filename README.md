@@ -171,6 +171,7 @@ $ popen <port>
 Updates powasp-tools to the latest version
 
 *Note: `sudo` must be used if updating `/powasp`*
+*Run `sudo su` followed by `powasp-update` on certain systems (such as Raspberry Pi)*
 
 ```
 # Default base directory is /powasp
