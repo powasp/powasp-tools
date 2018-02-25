@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Converts epoch date to human readable format with time zone selection. Cross platform!
-# Usage: ptime [-z | -Z $TIMEZONE] [-f $FORMATSTRING] <@EPOCHS>
+# Usage: ptime [-z | -Z $TIMEZONE] [-f $FORMATSTRING] <$FILE | @EPOCHS>
 
 TZONE=$(date +%Z)
-#FORMATSTRING='%a %D %T'
+# FORMATSTRING is unset
 
 # Check if a time zone adjustment is set
 # Check if format string is set
@@ -50,6 +50,12 @@ done
 shift $(($OPTIND-1))
 
 
+# If the first EPOCH is a file and no parameter $2, use the contents of the file
+if [[ -f "$1" && -z "$2" ]]; then
+	TOCONVERT=($(cat $1))
+else
+	TOCONVERT=("$@")
+fi
 
 
 # Determine whether we are on a BSD system or a GNU system
@@ -67,7 +73,7 @@ GNU=$?
 
 
 # Loop through the @EPOCHS and convert them
-for DATE in "$@"; do
+for DATE in "${TOCONVERT[@]}"; do
   # Remove unnecessary milliseconds
   DATE=$((DATE/1000))
 
