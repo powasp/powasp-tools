@@ -15,6 +15,12 @@ To update:
 $ sudo powasp-update
 ```
 
+or
+```
+$ sudo su
+$ powasp-update
+```
+
 ---
 
 # Available Commands
