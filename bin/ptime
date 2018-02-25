@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # Converts epoch date to human readable format with time zone selection. Cross platform!
-# Usage: ptime [-z | -Z $TIMEZONE] <@EPOCHS>
+# Usage: ptime [-z | -Z $TIMEZONE] [-f $FORMATSTRING] <@EPOCHS>
 
 TZONE=$(date +%Z)
+#FORMATSTRING='%a %D %T'
 
 # Check if a time zone adjustment is set
-while getopts "zZ:" OPT; do
+# Check if format string is set
+while getopts "zZ:f:" OPT; do
 	case $OPT in
 		z)
       # Select the time zone from /usr/share/zoneinfo. Could be just "EST" or could be "America/New York"
@@ -29,6 +31,10 @@ while getopts "zZ:" OPT; do
       # Set TZONE to argument
       TZONE="$OPTARG"
       ;;
+		f)
+		# Set FORMATSTRING to argument
+			FORMATSTRING="$OPTARG"
+			;;
 		\?)
 			echo "Invalid option: -$OPTARG" &>2
 			exit 2
@@ -67,5 +73,11 @@ for DATE in "$@"; do
 
   # Run the correct date syntax depending on the OS
   # Make sure to set the TZ environment variable to the selected time zone
-  [[ $GNU == 0 ]] && TZ=":$TZONE" date -d @"$DATE" || TZ=":$TZONE" date -r "$DATE"
+  if [[ $GNU == 0 ]]; then
+		# GNU date syntax
+		TZ=":$TZONE" date -d @"$DATE" ${FORMATSTRING+"+$FORMATSTRING"}
+	else
+		# BSD date syntax
+		TZ=":$TZONE" date -r "$DATE" ${FORMATSTRING+"+$FORMATSTRING"}
+	fi
 done
