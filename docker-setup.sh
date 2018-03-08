@@ -6,7 +6,7 @@
 
 # Variables
 LOCALROOT="$HOME/.powasp"
-GITGET="sudo git clone https://github.com/powasp/powasp-tools/ /powasp"
+GITGET="sudo git pull https://github.com/powasp/powasp-tools/ /powasp"
 
 # Pull the Docker image
 echo "*** Pulling the POWASP Docker image ***"
