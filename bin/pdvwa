@@ -18,4 +18,4 @@ docker pull citizenstig/dvwa
 
 # Start the service citizenstig/dvwa
 # Open browser window if it succeeds
-docker run --rm -d -p 80:80 --name pdvwa citizenstig/dvwa && popen 80
+docker run --rm -d -p 80:80 --name pdvwa citizenstig/dvwa && /powasp/bin/popen 80

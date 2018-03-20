@@ -4,15 +4,15 @@
 
 
 # Pull the docker image
-pgap "*** Pulling the latest version of powasp/powasp (docker) ... ***"
+/powasp/bin/pgap "*** Pulling the latest version of powasp/powasp (docker) ... ***"
 docker pull powasp/powasp
-pgap "*** Done ***"
+/powasp/bin/pgap "*** Done ***"
 
 
 # Pull the latest powasp-tools to be used in the Docker
-pgap "*** Pulling the latest powasp/powasp-tools (github) ... ***"
-powasp-update -d ~/.powasp/powasp
-pgap "*** Done ***" 
+/powasp/bin/pgap "*** Pulling the latest powasp/powasp-tools (github) ... ***"
+/powasp/bin/powasp-update -d ~/.powasp/powasp
+/powasp/bin/pgap "*** Done ***"
 
 
 # Run the docker image

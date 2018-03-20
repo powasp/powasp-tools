@@ -3,7 +3,7 @@
 # Shows README entry for commands
 # Usage: phelp <command>
 
-pgap 1 "----- BEGIN HELP -----" 2
+/powasp/bin/pgap 1 "----- BEGIN HELP -----" 2
 
 # If no command given, show the whole README and exit
 [[ -z "$1" ]] && cat /powasp/README.md && exit
@@ -12,4 +12,4 @@ pgap 1 "----- BEGIN HELP -----" 2
 # Print all but the last 3 lines
 sed -n "/^\#\# $1/,/^\#\#/ p" /powasp/README.md | sed '$d' | sed '$d' | sed '$d'
 
-pgap 2 "----- END HELP -----"
+/powasp/bin/pgap 2 "----- END HELP -----"

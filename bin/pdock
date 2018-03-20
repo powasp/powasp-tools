@@ -17,7 +17,7 @@ case "$1" in
 		echo "Removing all images"
 
 		# Confirm before running
-		pconfirm -n && docker rmi $(docker images -aq)
+		/powasp/bin/pconfirm -n && docker rmi $(docker images -aq)
 		;;
 	rmc)
 		echo "Removing all containers..."
@@ -28,7 +28,7 @@ case "$1" in
 			exit
 		fi
 
-		pconfirm -n "Stop running containers?" && docker stop $(docker ps -aq)
+		/powasp/bin/pconfirm -n "Stop running containers?" && docker stop $(docker ps -aq)
 
 		# Check if there are no containers to remove
 		if [[ -z "$(docker ps -aq)" ]]; then
@@ -37,7 +37,7 @@ case "$1" in
 		fi
 
 		# Confirm before running
-		pconfirm -n "Delete all containers?" && docker rm $(docker ps -aq)
+		/powasp/bin/pconfirm -n "Delete all containers?" && docker rm $(docker ps -aq)
 		;;
 	*)
 		echo "Error: command not found"

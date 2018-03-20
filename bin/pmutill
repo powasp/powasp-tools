@@ -18,4 +18,4 @@ docker pull szsecurity/mutillidae
 
 # Start the service
 # Open in browser if it succeeds
-docker run --rm -p 1337:80 --name pmutill szsecurity/mutillidae && popen 1337
+docker run --rm -p 1337:80 --name pmutill szsecurity/mutillidae && /powasp/bin/popen 1337

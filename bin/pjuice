@@ -18,4 +18,4 @@ docker pull bkimminich/juice-shop
 
 # Start the service
 # Open in browser if it succeeds
-docker run --rm -p 3000:3000 --name pjuice bkimminich/juice-shop && popen 3000
+docker run --rm -p 3000:3000 --name pjuice bkimminich/juice-shop && /powasp/bin/popen 3000

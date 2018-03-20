@@ -30,7 +30,7 @@ AFTER=1
 [[ -n "$3" ]] && AFTER=$3
 
 # If $1 is a string, set $LINES to 1 and $AFTER to $2
-if [[ $(ptype $1) == "string" ]]; then
+if [[ $(/powasp/bin/ptype $1) == "string" ]]; then
   LINES=1
   TEXT="$1"
   AFTER=${2:-'1'} # Set to 1 if $2 not set

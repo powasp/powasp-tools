@@ -28,23 +28,23 @@ done
 shift $(($OPTIND-1))
 
 
-pgap "----------------------------"
+/powasp/bin/pgap "----------------------------"
 
 # Navigate to base directory
-pgap 0 "Installing in $POWASPDIR ..."
+/powasp/bin/pgap 0 "Installing in $POWASPDIR ..."
 cd $POWASPDIR
 
 git pull
 
 # Check if git worked
 if [[ $? != 0 ]]; then
-  pgap "!!! Update failed. Try running as root (sudo powasp-update) !!!"
+  /powasp/bin/pgap "!!! Update failed. Try running as root (sudo powasp-update) !!!"
   exit
 fi
 
-pgap 2 "* Completing Update... *"
+/powasp/bin/pgap 2 "* Completing Update... *"
 
 # Make sure bin files have execute permissions
 # chmod -R +x $POWASPDIR/bin
 echo "* Update complete! *"
-pgap "----------------------------"
+/powasp/bin/pgap "----------------------------"
