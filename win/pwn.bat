@@ -3,8 +3,8 @@
 :: Runs the powasp docker image and opens a shell on windows
 :: https://docs.docker.com/docker-for-windows/#shared-drives
 
-set LOCALROOT=%systemdrive%%homepath%\.powasp
-set VOLUMEROOT=%systemdrive:C=c%%homepath:\=/%/.powasp
+set LOCALROOT=C:%homepath%\.powasp
+set VOLUMEROOT=c:%homepath:\=/%/.powasp
 
 :: Pull the docker image
 echo:
@@ -15,19 +15,15 @@ echo:
 echo "*** Done ***"
 echo:
 
-pause
-
 :: Pull the latest powasp-tools to be used in the Docker
 echo:
 echo "*** Pulling the latest powasp/powasp-tools (github) ... ***"
 echo:
-cd %LOCALROOT%\powasp
+cd /d %LOCALROOT%\powasp
 git pull
 echo:
 echo "*** Done ***"
 echo:
-
-pause
 
 :: Run the docker image
 :: Hostname (-h): powasp
