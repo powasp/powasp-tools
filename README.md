@@ -137,6 +137,17 @@ $ phelp <command>
 ```
 
 
+## phome
+
+Prints the original (non-sudo) user's $HOME directory. Uses $SUDO_USER as the default $USERNAME
+
+
+```
+$ phome [$USERNAME]
+```
+
+
+
 ## pjuice
 
 Pulls and runs juice
