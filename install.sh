@@ -6,7 +6,7 @@
 
 # Set $USER_HOME to the original user's directory
 # Avoids problems with sudo placing files in /root
-USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+USER_HOME=$(bash /powasp/bin/phome "$SUDO_USER")
 
 
 # Variables

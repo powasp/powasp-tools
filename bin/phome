@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Prints the original (non-sudo) user's $HOME directory
+
+
+ORIG_USER="$SUDO_USER"
+
+[[ -n "$1" ]] && ORIG_USER="$1"
+
+USER_HOME=`sudo -i -u "$ORIG_USER" bash -c 'cd; pwd'`
+
+echo $USER_HOME
