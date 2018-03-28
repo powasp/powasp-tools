@@ -17,4 +17,4 @@ docker pull powasp/powasp
 # Run the docker image
 # Hostname (-h): powasp
 # Container Name (--name) powaspcontainer
-docker run -ti --rm -v "$HOME/.powasp/powasp:/powasp" -v "$USER_HOME/.powasp/persistent:/persistent" -h powasp --name powaspcontainer powasp/powasp
+docker run -ti --rm -v "$HOME/.powasp/powasp:/powasp" -v "$HOME/.powasp/persistent:/persistent" -h powasp --name powaspcontainer powasp/powasp
