@@ -4,8 +4,12 @@
 
 # set -x
 
+# Set $USER_HOME to the original user's directory
+# Avoids problems with sudo placing files in /root
+USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+
 # Variables
-LOCALROOT="$HOME/.powasp"
+LOCALROOT="$USER_HOME/.powasp"
 GITGET="sudo git clone https://github.com/powasp/powasp-tools/ /powasp"
 
 # Pull the Docker image

@@ -4,9 +4,14 @@
 
 # set -x
 
+# Set $USER_HOME to the original user's directory
+# Avoids problems with sudo placing files in /root
+USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+
+
 # Variables
-RCPATH="$HOME/.bashrc"
-PROFILEPATH="$HOME/.bash_profile"
+RCPATH="$USER_HOME/.bashrc"
+PROFILEPATH="$USER_HOME/.bash_profile"
 RCSTR="[[ -f /powasp/.bashrc ]] && source /powasp/.bashrc # Loads POWASP .bashrc"
 PROFILESTR="[[ -f ~/.bashrc ]] && source ~/.bashrc # Loads .bashrc"
 
