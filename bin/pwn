@@ -2,10 +2,6 @@
 
 # Runs the powasp docker image and opens a shell
 
-# Set $USER_HOME to the original user's directory
-# Avoids problems with sudo placing files in /root
-USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
-
 # Pull the docker image
 /powasp/bin/pgap "*** Pulling the latest version of powasp/powasp (docker) ... ***"
 docker pull powasp/powasp
@@ -14,11 +10,11 @@ docker pull powasp/powasp
 
 # Pull the latest powasp-tools to be used in the Docker
 /powasp/bin/pgap "*** Pulling the latest powasp/powasp-tools (github) ... ***"
-/powasp/bin/powasp-update -d "$USER_HOME/.powasp/powasp"
+/powasp/bin/powasp-update -d "$HOME/.powasp/powasp"
 /powasp/bin/pgap "*** Done ***"
 
 
 # Run the docker image
 # Hostname (-h): powasp
 # Container Name (--name) powaspcontainer
-docker run -ti --rm -v "$USER_HOME/.powasp/powasp:/powasp" -v "$USER_HOME/.powasp/persistent:/persistent" -h powasp --name powaspcontainer powasp/powasp
+docker run -ti --rm -v "$HOME/.powasp/powasp:/powasp" -v "$USER_HOME/.powasp/persistent:/persistent" -h powasp --name powaspcontainer powasp/powasp
